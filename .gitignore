@@ -1,0 +1,12 @@
+project/project
+project/target
+target
+/.idea
+/out
+/.idea_modules
+/.classpath
+/.project
+**/.idea
+**/.idea_modules
+*/*/.idea
+*/*/.idea_modules
