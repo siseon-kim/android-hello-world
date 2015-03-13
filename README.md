@@ -1,74 +1,44 @@
-Evented I/O for V8 javascript. [![Build Status](https://secure.travis-ci.org/joyent/node.png)](http://travis-ci.org/joyent/node)
-===
+# Android Intellij 개발환경 가이드
 
-### To build:
+### SDK 다운로드
+https://developer.android.com/sdk/index.html#Other
 
-Prerequisites (Unix only):
+다운로드 후 intellij 에서 찾을 수 있도록 ANDROID_HOME path를 지정해야 한다.
 
-    * GCC 4.2 or newer
-    * Python 2.6 or 2.7
-    * GNU Make 3.81 or newer
-    * libexecinfo (FreeBSD and OpenBSD only)
+### Intellij 를 열어 SBT 프로젝트 생성
+New Project -> Scala -> SBT
 
-Unix/Macintosh:
+### Project Structure 설정
+#### project 탭
+* project SDK : 1.7
+* project language level : 7.0 Diamonds
 
-    ./configure
-    make
-    make install
+#### Modules 탭
+* Dependencies -> Modules SDK -> android(사용할 버전) !! 참고로 New.. 버튼을 클릭 한 후 android SDK 를 다운받아 압축을 푼 폴더를 경로로 선택하면 의존성으로 추가할 수 있는 SDK의 목록이 나오게 된다.
 
-If your python binary is in a non-standard location or has a
-non-standard name, run the following instead:
+#### 소스 가져오기
+git 에서 Hello World 소스를 가져온다
 
-    export PYTHON=/path/to/python
-    $PYTHON ./configure
-    make
-    make install
+#### 에뮬레이터 실행 혹은 디바이스 연결
+### 에뮬레이터 실행
+* 터미널에서 android avd 명령을 치거나 직접 avd 매니져를 실행한다
+* avd 매니져를 실행한 후 에뮬레이터가 없으면 create 버튼을 눌러 에뮬레이터를 먼저 생성해야 한다.
+* 실행할 에뮬레이터를 설정 한 후 start 버튼 클릭
 
-Windows:
+#### 소스 컴파일 & run
+https://github.com/pfn/android-sdk-plugin/tree/master/sbt-test/android-sdk-plugin 
+* 컴파일   - sbt android:compile
+* apk 생성 - sbt android:package
+* apk 실행 - sbt android:run
 
-    vcbuild.bat
 
-You can download pre-built binaries for various operating systems from
-[http://nodejs.org/download/](http://nodejs.org/download/).  The Windows
-and OS X installers will prompt you for the location to install to.
-The tarballs are self-contained; you can extract them to a local directory
-with:
 
-    tar xzf /path/to/node-<version>-<platform>-<arch>.tar.gz
 
-Or system-wide with:
 
-    cd /usr/local && tar --strip-components 1 -xzf \
-                         /path/to/node-<version>-<platform>-<arch>.tar.gz
 
-### To run the tests:
 
-Unix/Macintosh:
 
-    make test
 
-Windows:
 
-    vcbuild.bat test
 
-### To build the documentation:
 
-    make doc
-
-### To read the documentation:
-
-    man doc/node.1
-
-Resources for Newcomers
----
-  - [The Wiki](https://github.com/joyent/node/wiki)
-  - [nodejs.org](http://nodejs.org/)
-  - [how to install node.js and npm (node package manager)](http://www.joyent.com/blog/installing-node-and-npm/)
-  - [list of modules](https://github.com/joyent/node/wiki/modules)
-  - [searching the npm registry](http://npmjs.org/)
-  - [list of companies and projects using node](https://github.com/joyent/node/wiki/Projects,-Applications,-and-Companies-Using-Node)
-  - [node.js mailing list](http://groups.google.com/group/nodejs)
-  - irc chatroom, [#node.js on freenode.net](http://webchat.freenode.net?channels=node.js&uio=d4)
-  - [community](https://github.com/joyent/node/wiki/Community)
-  - [contributing](https://github.com/joyent/node/wiki/Contributing)
-  - [big list of all the helpful wiki pages](https://github.com/joyent/node/wiki/_pages)
